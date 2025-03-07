@@ -17,9 +17,10 @@ export const ContactsPage = (props) => {
 const handleSubmit = (e) => {
   e.preventDefault();
   if (!isDuplicate) {
-    console.log(name + email + phone + "Contact to add");
     props.onAdd({ name, email, phone });
-    console.log(props.contacts + "Contact added");
+    setName('');
+    setEmail('');
+    setPhone('');
   } else {
     console.log("Contact already exists");
     setTimeout(() => alert("Contact already exists"), 1000);    

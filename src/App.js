@@ -9,7 +9,7 @@ function App() {
   Define state variables for 
   contacts and appointments 
   */
-  const [contacts, setcontacts] = useState([]);
+  const [contacts, setContacts] = useState([]);
   const [appointments, setAppointments] = useState([]);
 
 
@@ -18,7 +18,7 @@ function App() {
   contacts and appointments
   */
 const addContact = (contact) => {
-  setcontacts((prevContacts) => [...prevContacts, contact]);
+  setContacts((prevContacts) => [...prevContacts, contact]);
  };
 
  const addAppointment = (appointment) =>{

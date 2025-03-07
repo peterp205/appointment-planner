@@ -4,14 +4,14 @@ import { AppointmentForm } from "../../components/appointmentForm/AppointmentFor
 import { TileList } from "../../components/tileList/TileList";
 
 export const AppointmentsPage = (props) => {
-  const [currentName, setCurrentName] = useState("Peter");
-  const [contact, setContact] = useState("Jhon");
-  const [date, setDate] = useState("08/03/2025");
-  const [time, setTime] = useState("14:00");
+  const [currentName, setCurrentName] = useState("");
+  const [contact, setContact] = useState("");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-   props.addAppointment({ currentName, contact, date, time });
+   props.onAdd({ currentName, contact, date, time });
     setCurrentName('');
     setContact('');
     setDate('');
@@ -36,11 +36,24 @@ export const AppointmentsPage = (props) => {
     <div>
       <section>
         <h2>Add Appointment</h2>
-        <Appoint
+        <AppointmentForm 
+          name={currentName}
+          contacts={props.contacts}
+          date={date}
+          time={time}
+          setName={onChangeName}
+          setContact={onChangeContact}
+          setDate={onChangeDate}
+          setTime={onChangeTime}
+          handleSubmit={handleSubmit}
+        />
       </section>
       <hr />
       <section>
         <h2>Appointments</h2>
+        <TileList 
+          contacts={props.appointments} 
+        />
       </section>
     </div>
   );
